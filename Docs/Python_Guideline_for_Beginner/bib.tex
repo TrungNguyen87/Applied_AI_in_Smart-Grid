@@ -50,13 +50,19 @@ Installation of the Anaconda package manager can be done in two different ways:
 In both cases, the package manager itself is named: \textbf{conda}.\\
 This document covers the scope of installing the software on Linux. However, installation on Windows and MacOS is very similar (consult Google on how to install Miniconda or Anaconda Navigator for these operating systems).\\
 
-For Miniconda, the console version, select the Linux installer (Python 3.x, 64-bit) and download. Install “Just for me” and a "~/Miniconda3" folder is created in your home directory.
+For Miniconda, the console version, select the Linux installer (Python 3.x, 64-bit) and download. Install “Just for me” and a "$\sim$/Miniconda3" folder is created in your home directory.
 Note: your username should NOT contain spaces.
 Choose default options for all possible installer choices.
 
-Once installed, open a terminal window and type: "conda -V" and see if the installation has been succesful.\\
+Once installed, open a terminal window and type: "conda -V" and see if the installation has been succesful. If so, you see the current version of the conda package manager and the (base) prompt, to indicate you are in the base environment, which you will, however, not use very often.\\
 
-For the installation of Anaconda Navigator (GUI), select the linux installer (Python 3.x, 64-bit) and download. The GUI is automatically installed when you install Anaconda version 4.0.0 or higher. Install “Just for me” and a  "~/Anaconda3" folder is created in your home directory.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{Pictures/Miniconda_prompt.png}
+	\caption[Short title]{Miniconda}
+	\label{fig:Miniconda}\end{figure}
+
+For the installation of Anaconda Navigator (GUI), select the linux installer (Python 3.x, 64-bit) and download. The GUI is automatically installed when you install Anaconda version 4.0.0 or higher. Install “Just for me” and a  "$\sim$/Anaconda3" folder is created in your home directory.
 Note: your username should NOT contain spaces.
 Choose default options for all possible installer choices.
 
@@ -70,25 +76,42 @@ The Anaconda Navigator user interface looks like the picture below:
 \centering
 \includegraphics[width=1\columnwidth]{Pictures/Anaconda_navigator.png}
 \caption[Short title]{Anaconda navigator}
-\label{fig:ff1}\end{figure}
+\label{fig:Navigator}\end{figure}
 
 \vspace{5mm}
 
-Now you can install Jupyter Notebook and Sypder for working with Python.\\
-Download conda cheat-sheet (google with key word conda cheat sheet) to see how to create an virtual environment and activate it.\\
-The link below give you more information on what is Anaconda and why do we use it:
-\href{https://protostar.space/why-you-need-python-environments-and-how-to-manage-them-with-conda}{Anaconda}.\\
-An alternative option is using Anaconda-navigator graphical interface.
+\section{Environments}
 
+The initial Miniconda installation comes with a single \textbf{base} environment, which is visible in the terminal prompt.
+
+The command: \textbf{(base) $\left<pwd\right>$conda list} shows all installed packages in the \textbf{base} environment. $\left<pwd\right>$ stands for the present folder, included in the terminal prompt as usual.
+Other \textbf{conda} commands can be given in the terminal to achieve full control over the Python environments and packages. A good practice is, to download a conda \emph{cheat-sheet} (Google with key word conda cheat sheet). In such a document, you can find how to \emph{create} a virtual environment and \emph{activate} it.\\
+A new environment is created with:\\ 
+\textbf{(base) $\left<pwd\right>$conda create –n $\left<env\_name\right>$ python=3.x}.\\ 
+This creates an environment with the basic packages.
+
+An important step is that you have to move to your new environment with:
+\textbf{(base) $\left<pwd\right>$activate $\left<env\_name\right>$}.\\  
+This changes the prompt into:\\
+\textbf{(new\_name) $\left<pwd\right>$activate $\left<env\_name\right>$}.\\
+and thus signals you the transfer to your newly created environment.
+Type \textbf{conda list} to see the basic packages of your new environment.\\
+
+An alternative option is using the Anaconda Navigator graphical user interface.
+The folllowing link provides information on environments in Anaconda and the purpose of using them:
+\href{https://protostar.space/why-you-need-python-environments-and-how-to-manage-them-with-conda}{Environments}.\\
+
+The Anaconda "Environments" window is shown in Figure~\ref{fig:Anaconda_environment}. Have a look at the packages installed in the base environment. Create a new environment with the "Create" button in the lower left of the window. Have a look at the packages installed in your new environment.
+These steps are identical to the steps executed in Miniconda: under the hood, the GUI types and carries out the terminal commands for you!
 
 \begin{figure}[H]
 \centering\includegraphics[width=1\columnwidth]{Pictures/env.png}
 \caption[Short title]{create environment}
-\label{fig:ff2}\end{figure}
+\label{fig:Anaconda_environment}\end{figure}
 
 
-A few standard packages will be installed when creating a new environment. However, most of the useful packages (libraries) need to be installed manually.\\   
-There are multiple way to install the missing packages.Search for the missing packages and install with anaconda-navigator. Look at instruction on pictures below:
+In general, upon creating a new environment, a few (Miniconda) or quite a lot (Anaconda Navigator) standard packages will be installed in the new environment. However, in both cases most of the useful packages (libraries) need to be installed manually.\\   
+There are multiple ways to install the missing packages.Search for the missing packages and install with anaconda-navigator. Look at instruction on pictures below:
 
 \vspace{5mm}
 \begin{figure}[H]
@@ -96,9 +119,7 @@ There are multiple way to install the missing packages.Search for the missing pa
 \caption[Short title]{install packages}
 \label{fig:ff3}\end{figure}
 
-\newpage
-
-Installing packages with Console. Keep in mind that the virtual environment needs to be activated before installing the missing packages.
+Installing packages with Console. Keep in mind that the virtual environment needs to be \emph{activated} before installing the missing packages.
 
 \begin{figure}[H]
 \centering\includegraphics[width=1\columnwidth]{Pictures/Open_terminal.png}
@@ -118,6 +139,11 @@ Copy one of the command in the red box and paste to the terminal.
 \caption[Short title]{Install package}
 \label{fig:ff6}\end{figure}
 
+For some users, Miniconda will seem a more obvious option for installing new packages in an environment. The \textbf{activate} and \textbf{conda install -c $\left<channel\right>$ 
+	$\left<package\right>$} commands can just be entered in the terminal window.\\
+
+\textit{Note on using environments:}
+It is customary to create a tailor-made environment for each Python project. Therefore, the information on installed packages needs to be shared among the project contributors. We'll see later in this document how that is done.
 
 
 \medskip
@@ -127,6 +153,7 @@ Copy one of the command in the red box and paste to the terminal.
 \section{Getting started}
 \label{sec:start}
 
+Now you can install Jupyter Notebook and Sypder for working with Python.\\
 The easiest way to get start is using a Jupyter notebook.
 "The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more." \cite{Jupyternotebook}.\\
 There are several alternative online Jupyter note book available for free such as \href{https://colab.research.google.com/notebooks/welcome.ipynb}{Google Colab},\href{https://www.kaggle.com/}{Kaggle},...etc. The instruction on how to setup these online platform will be discusses in separate document.\\

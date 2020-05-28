@@ -30,32 +30,51 @@
 
 \section{Introduction}
 
-In March 2020 python is the most popular programming languages were searches for tutorial by 31.17\% \href{http://pypl.github.io/PYPL.html}{PYPL}\cite{PYPL}.\newline
-Anaconda is a free and open-source distribution of the Python programming languages which aims to simplify the package management and deployment. Anaconda work on Windows, Linux, and Mac OS and helps manage libraries, dependencies, and the environment. The virtual environment manager allowing you to install independent development environments and switch from one to the other (like virtualenv).\\ 
-This document will guide the starter on how to set up the environment from scratch.\\
-Skip the introduction part and start immediately by go to \hyperref[sec:start]{Getting started} section.
+Currently (March 2020) Python is one of the most popular programming languages. According to the PYPL PopularitY of Programming Language Index, a search for a tutorial looks for a Python tutorial in 31.17\% of the cases [\href{http://pypl.github.io/PYPL.html}{PYPL}].\newline
+Python is a \emph{script} language, whereby each line of the script is read and executed by the  \emph{Python interpreter}. Python scripts may \emph{import} other Python scripts in the form of \emph {packages}. The collection of packages used in a Python program should fit together and constitutes a \emph{Python environment}. Buiding an environment and choosing the right versions of Python packages for a task is best left to a \emph{package manager}.\newline
+Anaconda is a free and open-source tool for Python package management and \emph{deployment}. Anaconda is platform-independent and will help managing your Python libraries on Windows, Linux, and Mac OS. This means that it will handle module dependencies and provides you with a Python environment. The virtual environment manager allows you to install an independent development environment for each project. You can switch between environments like with other tools (\textit{e.g.} virtualenv).\\ 
+This document will guide the starter on how to set up the environment from scratch, starting with the installation.
+If you have already installed Anaconda, skip the Software Installation and start immediately by going to the \hyperref[sec:start]{Getting Started} section.
 
 
 % ---------------------------------------------------------------------
 
-\section{ Software Install}
+\section{ Software Installation}
 
-This document only covers the scope of install the software base on Linux. However, the window installation is very similar(google on how to install Anaconda for window).\\
-Download Anaconda from the official website:\href{https://www.anaconda.com/products/individual}{Anaconda}.\\
-Select Linux and then Download the installer.Navigator is automatically installed when you install Anaconda version 4.0.0 or higher.If you have Miniconda or an older version of Anaconda installed, you can install Navigator from an Anaconda Prompt by running the command:" conda install anaconda-navigator ".\\
-The Anaconda\_navigator user interface looks like the picture below:
+Installation of the Anaconda package manager can be done in two different ways:
+\begin{itemize}
+	\item installation of Miniconda, the console version. Download from \href{https://docs.conda.io/en/latest/miniconda.html}{Miniconda}
+	\item installation of Anaconda Navigator, the GUI version. Download from \href{https://www.anaconda.com/products/individual}{Anaconda}.
+\end{itemize}
+
+In both cases, the package manager itself is named: \textbf{conda}.\\
+This document covers the scope of installing the software on Linux. However, installation on Windows and MacOS is very similar (consult Google on how to install Miniconda or Anaconda Navigator for these operating systems).\\
+
+For Miniconda, the console version, select the Linux installer (Python 3.x, 64-bit) and download. Install “Just for me” and a "~/Miniconda3" folder is created in your home directory.
+Note: your username should NOT contain spaces.
+Choose default options for all possible installer choices.
+
+Once installed, open a terminal window and type: "conda -V" and see if the installation has been succesful.\\
+
+For the installation of Anaconda Navigator (GUI), select the linux installer (Python 3.x, 64-bit) and download. The GUI is automatically installed when you install Anaconda version 4.0.0 or higher. Install “Just for me” and a  "~/Anaconda3" folder is created in your home directory.
+Note: your username should NOT contain spaces.
+Choose default options for all possible installer choices.
+
+Note: If you have Miniconda or an older version of Anaconda installed, you can install Navigator from an Anaconda Prompt (console) by running the command:" conda install anaconda-navigator ".\\
+
+The Anaconda Navigator user interface looks like the picture below:
 
 \vspace{5mm}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\columnwidth]{Anaconda_navigator.png}
+\includegraphics[width=1\columnwidth]{Pictures/Anaconda_navigator.png}
 \caption[Short title]{Anaconda navigator}
 \label{fig:ff1}\end{figure}
 
 \vspace{5mm}
 
-Now you can install Jupyter notebook and Sypder for working with Python.\\
+Now you can install Jupyter Notebook and Sypder for working with Python.\\
 Download conda cheat-sheet (google with key word conda cheat sheet) to see how to create an virtual environment and activate it.\\
 The link below give you more information on what is Anaconda and why do we use it:
 \href{https://protostar.space/why-you-need-python-environments-and-how-to-manage-them-with-conda}{Anaconda}.\\
@@ -63,7 +82,7 @@ An alternative option is using Anaconda-navigator graphical interface.
 
 
 \begin{figure}[H]
-\centering\includegraphics[width=1\columnwidth]{env.png}
+\centering\includegraphics[width=1\columnwidth]{Pictures/env.png}
 \caption[Short title]{create environment}
 \label{fig:ff2}\end{figure}
 
@@ -73,7 +92,7 @@ There are multiple way to install the missing packages.Search for the missing pa
 
 \vspace{5mm}
 \begin{figure}[H]
-\centering\includegraphics[width=1\columnwidth]{packages.png}
+\centering\includegraphics[width=1\columnwidth]{Pictures/packages.png}
 \caption[Short title]{install packages}
 \label{fig:ff3}\end{figure}
 
@@ -82,12 +101,12 @@ There are multiple way to install the missing packages.Search for the missing pa
 Installing packages with Console. Keep in mind that the virtual environment needs to be activated before installing the missing packages.
 
 \begin{figure}[H]
-\centering\includegraphics[width=1\columnwidth]{Open_terminal.png}
+\centering\includegraphics[width=1\columnwidth]{Pictures/Open_terminal.png}
 \caption[Short title]{Open terminal}
 \label{fig:ff4}\end{figure}
 
 \begin{figure}[H]
-\centering\includegraphics[width=1\columnwidth]{activate_env.png}
+\centering\includegraphics[width=1\columnwidth]{Pictures/activate_env.png}
 \caption[Short title]{Activate Environment}
 \label{fig:ff5}\end{figure}
 
@@ -95,7 +114,7 @@ Find the missing packages from :\href{https://anaconda.org/conda-forge/repo}{Ana
 Copy one of the command in the red box and paste to the terminal.
 
 \begin{figure}[H]
-\centering\includegraphics[width=1\columnwidth]{install_pack.png}
+\centering\includegraphics[width=1\columnwidth]{Pictures/install_pack.png}
 \caption[Short title]{Install package}
 \label{fig:ff6}\end{figure}
 
@@ -114,12 +133,12 @@ There are several alternative online Jupyter note book available for free such a
 Open Jupyter note book by click "Launch"
 
 \begin{figure}[H]
-\centering\includegraphics[width=1\columnwidth]{Jupyter.png}
+\centering\includegraphics[width=1\columnwidth]{Pictures/Jupyter.png}
 \caption[Short title]{Open Jupyter notebook}
 \label{fig:ff7}\end{figure}
 
 \begin{figure}[H]
-\centering\includegraphics[width=1\columnwidth]{Jupyter_new.png}
+\centering\includegraphics[width=1\columnwidth]{Pictures/Jupyter_new.png}
 \caption[Short title]{Create a new python 3 project}
 \label{fig:ff8}\end{figure}
 
@@ -128,7 +147,7 @@ Open Jupyter note book by click "Launch"
 Now try to write something with Jupyter notebook and click Run button or "Shift-Enter"
 
 \begin{figure}[H]
-\centering\includegraphics[width=1\columnwidth]{Jupyter_try.png}
+\centering\includegraphics[width=1\columnwidth]{Pictures/Jupyter_try.png}
 \caption[Short title]{Simple example}
 \label{fig:ff9}\end{figure}
 
@@ -138,7 +157,7 @@ Downloading \href{https://nbviewer.jupyter.org/github/jupyter/notebook/blob/mast
 
 
 \begin{figure}[H]
-\centering\includegraphics[width=1\columnwidth]{Jupyter_online_try.png}
+\centering\includegraphics[width=1\columnwidth]{Pictures/Jupyter_online_try.png}
 \caption[Short title]{Online example}
 \label{fig:ff10}\end{figure}
 
